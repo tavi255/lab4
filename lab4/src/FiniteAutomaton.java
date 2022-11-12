@@ -5,10 +5,10 @@ import java.util.*;
 
 public class FiniteAutomaton {
 
-    public Set<String> alphabet,states,finalStates;
-    public String initialState;
+    private Set<String> alphabet,states,finalStates;
+    private String initialState;
 
-    public Map<Pair<String,String>,Set<String>>transitions;
+    private Map<Pair<String,String>,Set<String>>transitions;
 
     public FiniteAutomaton(String filename)
     {
