@@ -1,16 +1,49 @@
+import java.util.Scanner;
+
 public class Main {
+
+    private static void printMenu(){
+        System.out.println("1. Print states.");
+        System.out.println("2. Print alphabet.");
+        System.out.println("3. Print final states.");
+        System.out.println("4. Print transitions.");
+        System.out.println("5. Check if sequence is accepted by DFA.");
+        System.out.println("0. Exit");
+    }
 
     public static void main(String [] args)
     {
-        FiniteAutomaton fn=new FiniteAutomaton("D:\\lftc\\lab4\\src\\FA.txt");
+        FiniteAutomaton fn=new FiniteAutomaton("D:\\lftc lab\\lab4\\lab4\\identifierDFA.txt");
 
-        String states=fn.get_states();
-        String alphabet=fn.get_alphabet();
-        String final_states=fn.get_finalStates();
-        String initial_state=fn.get_initialState();
-        String transitions=fn.get_transitions();
+        boolean ok=true;
+        Scanner s=new Scanner(System.in);
 
-        System.out.println(states+"\n"+alphabet+"\n"+final_states+"\n"+initial_state+"\n"+transitions);
+        while(ok) {
+            printMenu();
+
+            int opt;
+            opt=s.nextInt();
+
+            switch (opt)
+            {
+                case 1 -> System.out.println(fn.get_states());
+                case 2 -> System.out.println(fn.get_alphabet());
+                case 3 -> System.out.println(fn.get_finalStates());
+                case 4 -> System.out.println(fn.get_transitions());
+                case 5 -> {
+                    Scanner s2=new Scanner(System.in);
+                    String seq=s2.nextLine();
+                    if(fn.check_sequence(seq))
+                        System.out.println("Sequence is accepted by DFA");
+                    else
+                        System.out.println("Sequence is not accepted by DFA");
+
+                }
+
+                default -> ok=false;
+            }
+
+        }
 
     }
 
