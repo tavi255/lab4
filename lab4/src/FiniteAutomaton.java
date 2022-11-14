@@ -32,9 +32,32 @@ public class FiniteAutomaton {
         return states+"\n"+alphabet+"\n"+final_states+"\n"+initial_state+"\n"+transitions;
     }
 
+    public boolean check_final(String state)
+    {
+        for(var elem:finalStates)
+            if(elem.equals(state))
+                return true;
+
+        return false;
+    }
+
+    public boolean checkDFA()
+    {
+        for(var pair : transitions.keySet())
+            if(transitions.get(pair).size()>1)
+                return false;
+        return true;
+    }
+
     public boolean check_sequence(String seq)
     {
 
+
+        if(!checkDFA())
+        {
+            System.out.println("This is not a DFA!");
+            return false;
+        }
         String current=initialState;
 
         for(int i=0;i<seq.length();i++)
@@ -48,10 +71,8 @@ public class FiniteAutomaton {
 
         }
 
-        for(var elem:finalStates)
-            if(elem.equals(current))
-                return true;
-        return false;
+
+        return check_final(current);
 
 
     }

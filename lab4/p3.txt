@@ -1,0 +1,17 @@
+start
+{
+var list<int>[30]v; int i; int ok; int n; ;
+scan(v);
+scan(n);
+i=0;
+ok=0;
+while(i<n)
+{
+if(v[i]%2==0)
+{
+ok=1;
+}
+i=i+1;
+}
+print(ok);
+}

@@ -1,0 +1,17 @@
+start
+{
+var list<int>[30]v; int n; int max; int i; ;
+scan(n);
+scan(v);
+max=v[0];
+i=0;
+while(i<n)
+{
+if(v[i]>max)
+{
+max=v[i];
+}
+i=i+1;
+}
+print(max);
+}

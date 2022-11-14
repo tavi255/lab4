@@ -1,0 +1,7 @@
+start
+{
+var int 3a; int b; int sum ; ;
+scan(3a,b);
+sum=3a+b;
+print(sum);
+}

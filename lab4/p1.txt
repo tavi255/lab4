@@ -1,0 +1,17 @@
+start
+{
+ var int a;  int i; int sum; ;
+
+ scan(a);
+ b=-0;
+ sum=0;
+ while(b<=a)
+{
+if(a%b==0)
+{
+sum=sum+b;
+}
+b=b+1;
+}
+print(sum);
+}
